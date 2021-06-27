@@ -9,6 +9,7 @@ import UIKit
 
 public typealias LoadButtonOptionalCompletion = (() -> Void)?
 public typealias LoadButtonCompletion = () -> Void
+public typealias LoadingCompletion = (_ isLoading: Bool) -> Void
 
 // MARK: - Global functions
 func delay(_ delay: Double, completion: @escaping LoadButtonCompletion) {
@@ -179,16 +180,8 @@ extension UIView {
      */
     public func centerSubView(_ view: UIView) {
         self.addConstraints(
-            [
-                NSLayoutConstraint(item: view, attribute: .centerX,
-                                   relatedBy: .equal,
-                                   toItem: self, attribute: .centerX,
-                                   multiplier: 1.0, constant: 0.0),
-                NSLayoutConstraint(item: view, attribute: .centerY,
-                                   relatedBy: .equal,
-                                   toItem: self, attribute: .centerY,
-                                   multiplier: 1.0, constant: 0.0)
-            ]
+            [NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0.0),
+             NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0.0)]
         )
     }
 }
